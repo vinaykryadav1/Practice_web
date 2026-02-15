@@ -21,10 +21,10 @@ CREATE TABLE IF NOT EXISTS employees(
 cur.executemany(
 "INSERT INTO employees VALUES(?,?,?,?,?,?,?)",
 [
-(1, 'Amit', 54321, 1, 'IT', 'Delhi', '2025-01-07'),
-(5, 'Shayam', 76543, 5, 'Sales', 'Delhi', '2025-04-12'),
-(7, 'Suraj', 34566, 7, 'Sales', 'Delhi', '2025-04-12'),
-(3, 'Aman', 45366, 3, 'Admin', 'Delhi', '2025-07-16'),
+(1, 'Amit', 54321, null, 'IT', 'Delhi', '2025-01-07'),
+(5, 'Shayam', 76543, null, 'Sales', 'Delhi', '2025-04-12'),
+(7, 'Suraj', 34566, null, 'Sales', 'Delhi', '2025-04-12'),
+(3, 'Aman', 45366, null, 'Admin', 'Delhi', '2025-07-16'),
 (4, 'Mohit', 65433, 5, 'Sales', 'Mumbai', '2025-08-14'),
 (6, 'Kishan', 65432, 7, 'Sales', 'Pune', '2025-08-14'),
 (2, 'Rohit', 87654, 1, 'IT', 'Mumbai', '2025-09-17'),
@@ -255,18 +255,17 @@ cur.execute("""
 CREATE TABLE IF NOT EXISTS products(
  product_id INTEGER,
  product_name TEXT,
- category TEXT,
- 
+ category TEXT
 )
 """)
 
 cur.executemany(
 "INSERT INTO products VALUES(?,?,?)",
 [
-(101,'Laptop','Electronics')
-(102,'Mobile','Electronics')
-(103,'Headphones','Accessories')
-(104,'Keyboard','Accessories')
+(101,'Laptop','Electronics'),
+(102,'Mobile','Electronics'),
+(103,'Headphones','Accessories'),
+(104,'Keyboard','Accessories'),
 (105,'Mouse','Accessories')
 ]
 )
@@ -277,3 +276,4 @@ con.commit()
 con.close()
 
 print("SQLite DB Ready")
+
